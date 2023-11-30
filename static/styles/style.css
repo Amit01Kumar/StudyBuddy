@@ -1586,7 +1586,86 @@ header{
 
 
 
+body {
+  background-color: #1a1a1a;
+  color: #ccc;
+  font-family: 'Arial', sans-serif;
+}
 
+.timer-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #333;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+#focusTime {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #444;
+  color: #ccc;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #007bff;
+  /* Heading color */
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.timer-clock {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#timer span {
+  display: inline-block;
+  min-width: 50px;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 8px;
+  margin: 0 5px;
+}
+
+#timer span:first-child {
+  margin-left: 0;
+}
+
+#timer span:last-child {
+  margin-right: 0;
+}
 
 /* Initial style for the colored-box */
 .colored-box {
