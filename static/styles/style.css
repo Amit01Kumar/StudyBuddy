@@ -1756,7 +1756,7 @@ button:hover {
 .youtube-player {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh; /* Full viewport height */
 }
 
