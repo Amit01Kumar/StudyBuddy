@@ -159,7 +159,7 @@ img {
 
 a {
   display: inline-block;
-  color: #00c3ff;
+  color: #00d0ff;
   text-decoration: none;
 }
 
@@ -1583,6 +1583,8 @@ header{
         gap: 0;
     }
 }
+/* Add these styles to your styles.css file */
+
 
 
 
@@ -1623,11 +1625,11 @@ label {
 button {
   width: 100%;
   padding: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #000000;
   color: #fff;
   transition: background-color 0.3s ease;
 }
