@@ -7,6 +7,7 @@ from .models import ContactInfo
 from django.contrib.auth import authenticate, login, logout
 from .models import Room, Topic, Message, User
 from .forms import RoomForm, UserForm, MyUserCreationForm
+from django.db.models import Count
 
 # Create your views here.
 
@@ -67,6 +68,8 @@ def registerPage(request):
 
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
+
+    topics = Topic.objects.annotate(room_count=Count('room')).order_by('-room_count')[:5]
 
     rooms = Room.objects.filter(
         Q(topic__name__icontains=q) |
