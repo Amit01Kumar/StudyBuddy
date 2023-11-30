@@ -11,6 +11,19 @@
 </head>
 <body>
 
+  <div class="timer-container">
+    <link rel="stylesheet" href="styles.css">
+    <label for="focusTime">Focus Time (minutes):</label>
+    <input type="number" id="focusTime" min="1" step="1" placeholder="Enter time in minutes">
+    <button id="setTimer">Set Timer</button>
+    <div id="timer" class="timer-clock">
+      <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+    <button id="startTimer">Start Timer</button>
+    <button id="stopTimer">Stop Timer</button>
+  </div>
+
+
   <!-- YouTube Player -->
   <div class="youtube-player">
     <div id="player"></div>

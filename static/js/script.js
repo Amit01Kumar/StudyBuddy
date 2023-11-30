@@ -157,14 +157,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-  
-  
-
-
-
-
-
-
 
 // YouTube API callback function
 function onYouTubeIframeAPIReady() {
@@ -174,3 +166,68 @@ function onYouTubeIframeAPIReady() {
     videoId: 'YOUR_YOUTUBE_VIDEO_ID',
   });
 }
+
+/* script.js */
+document.addEventListener('DOMContentLoaded', function () {
+  const timerElement = document.getElementById('timer');
+  const setButton = document.getElementById('setTimer');
+  const startButton = document.getElementById('startTimer');
+  const stopButton = document.getElementById('stopTimer');
+  const focusTimeInput = document.getElementById('focusTime');
+  let totalSeconds = 0;
+  let startTime;
+  let elapsedTime = 0; // Variable to store elapsed time
+  let timerId;
+
+  function updateTimer() {
+    const currentTime = Math.floor((Date.now() - startTime) / 1000);
+    const remainingTime = totalSeconds - (currentTime + elapsedTime);
+
+    if (remainingTime > 0) {
+      const hours = Math.floor(remainingTime / 3600);
+      const minutes = Math.floor((remainingTime % 3600) / 60);
+      const seconds = remainingTime % 60;
+
+      document.getElementById('hours').innerText = hours < 10 ? `0${hours}` : hours;
+      document.getElementById('minutes').innerText = minutes < 10 ? `0${minutes}` : minutes;
+      document.getElementById('seconds').innerText = seconds < 10 ? `0${seconds}` : seconds;
+
+      timerId = requestAnimationFrame(updateTimer);
+    } else {
+      stopTimer(); // Stop the timer when it reaches 0
+    }
+  }
+
+  function startTimer() {
+    startTime = Date.now() - elapsedTime;
+    updateTimer();
+  }
+
+  function stopTimer() {
+    cancelAnimationFrame(timerId);
+    elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    startTime = null; // Reset start time when stopping
+  }
+
+  setButton.addEventListener('click', function () {
+    const focusTime = parseInt(focusTimeInput.value, 10);
+    if (!isNaN(focusTime) && focusTime > 0) {
+      totalSeconds = focusTime * 60; // Convert minutes to seconds
+      startTime = Date.now();
+      elapsedTime = 0; // Reset elapsed time when setting a new timer
+      updateTimer();
+    } else {
+      alert('Please enter a valid positive number for focus time.');
+    }
+  });
+
+  startButton.addEventListener('click', function () {
+    if (!startTime) {
+      startTimer();
+    }
+  });
+
+  stopButton.addEventListener('click', function () {
+    stopTimer();
+  });
+});
